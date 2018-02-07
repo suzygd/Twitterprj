@@ -1,6 +1,8 @@
 'use strict'
 
 const Twitter = require('twitter')
+const env = require('env.js')`
+
 
 const client = new Twitter({
   consumer_key: env.TWITTER_CONSUMER_KEY,
