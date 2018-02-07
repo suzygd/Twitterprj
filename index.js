@@ -1,16 +1,18 @@
 'use strict'
 
 const express = require('express')
-/* veut dire que l'on fait appel à express
+/* on fait appel à express
 */
 const app = express()
+/* app = le serveur
+*/
 
 const port = env.port
 /* le serveur local définit dans env.js c a d 3000 , pour info n'importe quel numero de port est valide mais il faut etre au dessus de 256 si tu n'es pas admin de ta machine
 */
 
 const twitter = require('./twitter-client')
-/* ça veut dire que l'on fait appel au fichier twitter-client 
+/* on fait appel au fichier twitter-client 
 */
 
 
@@ -21,7 +23,8 @@ const twitter = require('./twitter-client')
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html')
 	/* "Quand on appelle la racine ( = /, donc http://localhost:3000/, note le / de fin), répond ( = res) avec le contenu du fichier index.html
-	cad ça envoi vers la page html que je lui indique
+	*cad ça envoi vers la page html que je lui indique à savoir le fichier index.html du prj
+	*app.get ('/...') = on déclare une nouvelle route
 	*/
 })
 
