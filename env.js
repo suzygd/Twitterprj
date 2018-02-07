@@ -1,5 +1,6 @@
 module.export = {
 
+/* il le manque pas un const env ? /
 
 consumer_key: '',
   consumer_secret: '',
