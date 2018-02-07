@@ -1,11 +1,18 @@
 'use strict'
 
 const express = require('express')
+/* veut dire que l'on fait appel à express
+*/
 const app = express()
 
-const port = 3000
+const port = env.port
+/* le serveur local définit dans env.js c a d 3000 , pour info n'importe quel numero de port est valide mais il faut etre au dessus de 256 si tu n'es pas admin de ta machine
+*/
 
 const twitter = require('./twitter-client')
+/* ça veut dire que l'on fait appel au fichier twitter-client 
+*/
+
 
 /*
  * GET /
@@ -13,6 +20,9 @@ const twitter = require('./twitter-client')
  */
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html')
+	/* "Quand on appelle la racine ( = /, donc http://localhost:3000/, note le / de fin), répond ( = res) avec le contenu du fichier index.html
+	cad ça envoi vers la page html que je lui indique
+	*/
 })
 
 /*
@@ -22,10 +32,16 @@ app.get('/', (req, res) => {
  * @param {String} latlon 48.8669576,2.3116284,5km
  */
 app.get('/tweets', (req, res) => {
+/* donc la tu dis maintenant quand tu vas sur http://localhost:3000/tweets, execute la fonction entre { }
+*/
 	if (req.query.q !== null && req.query.latlon !== null && req.query.q !== '' && req.query.latlon !== '') {
 		twitter.get('search/tweets', {
+			/* "va chercher les tweets"
+			*/
 				q: req.query.q,
 				geocode: req.query.latlon,
+			/* https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html#parameters
+			*/
 				count: 100
 			})
 			.then(function (tweets) {
