@@ -3,6 +3,7 @@
 const express = require('express')
 const app = express()
 
+const env = require('./env');
 const port = env.port
 
 const twitter = require('./twitter-client')
