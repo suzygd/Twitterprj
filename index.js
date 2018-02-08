@@ -48,6 +48,10 @@ app.get('/tweets', (req, res) => {
 				count: 100
 			})
 			.then(function (tweets) {
+			/* .then = promesse (promise en Javascript)
+			* La fonction .then() d'une promesse permet de récupérer le résultat de la promesse de manière asynchrone
+			* donc dans .then(function(tweets)) {...}, le paramètre tweets contient le résultat de la fonction twitter.get('search/tweet')
+			/* 
 				// Filter Twitter API results with only tweets with geo field
 				let filteredTweets = tweets.statuses.filter(o => o.geo !== null)
 
@@ -55,6 +59,8 @@ app.get('/tweets', (req, res) => {
 			})
 			.catch(function (error) {
 				res.status(500).send(error)
+				/* le .catch ca va avec .then, c'est pour gerer les erreurs
+				*/
 			})
 	} else {
 		res.sendStatus(400)
