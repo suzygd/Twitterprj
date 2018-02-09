@@ -50,6 +50,7 @@ app.get('/tweets', (req, res) => {
 
 app.listen(port, (err) => {
 	if (err) {
+		console.log(`Server listening on ${port}`);
 		return console.log('Error', err)
 	}
 })
